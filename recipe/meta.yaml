@@ -1,5 +1,5 @@
 {% set name = "tf2-gnn" %}
-{% set version = "2.13.0" %}
+{% set version = "2.14.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tf2_gnn-{{ version }}.tar.gz
-  sha256: 9854a521c727c63c7edf2f6e670701ba79329a6203e65f775547fbf93547c2fc
+  sha256: c1579f67ba671bc4b711199f77a79003828b54b9c519e6c872c7e07345f96cb5
 
 build:
   entry_points:
@@ -27,6 +27,7 @@ requirements:
     - tensorflow >=2.0.0
     - dpu-utils >=0.2.7
     - h5py
+    - packaging
 
 test:
   imports:
