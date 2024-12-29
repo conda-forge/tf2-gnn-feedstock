@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tf2_gnn-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tf2_gnn-{{ version }}.tar.gz
   sha256: c1579f67ba671bc4b711199f77a79003828b54b9c519e6c872c7e07345f96cb5
 
 build:
@@ -15,14 +15,14 @@ build:
     - tf2_gnn_test = tf2_gnn.cli.test:run
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - numpy
     - tensorflow >=2.0.0
     - dpu-utils >=0.2.7
@@ -38,6 +38,7 @@ test:
     - tf2_gnn_test --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/microsoft/tf2-gnn/
